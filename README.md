@@ -2,8 +2,9 @@
 
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-automated_test_emulator_run)
 
-<b>(article is deprecated - covered plugin version < 1.3.2 which doesn't support Build-Tools ver. >= 25.0.2)</b>
-<br>See [blog post related to this plugin](https://medium.com/azimolabs/managing-android-virtual-devices-during-test-session-98a403acffc2#.upcmonil1). You can learn there how to create basic setup for this plugin step by step.
+## About this fork
+
+Forked from original gem as it looks to be abandoned by its original author(s). This fork aims to add support for the [Android Command line tools](https://developer.android.com/studio/command-line) as well as include some improvements that would be useful additions to the base functionality of the plugin.
 
 ## About automated_test_emulator_run
 
@@ -101,6 +102,3 @@ For more information about how the `fastlane` plugin system works, check out the
 
 `fastlane` is the easiest way to automate building and releasing your iOS and Android apps. To learn more, check out [fastlane.tools](https://fastlane.tools).
 
-
-# Towards financial services available to all
-We’re working throughout the company to create faster, cheaper, and more available financial services all over the world, and here are some of the techniques that we’re utilizing. There’s still a long way ahead of us, and if you’d like to be part of that journey, check out our [careers page](https://bit.ly/3vajnu6).
