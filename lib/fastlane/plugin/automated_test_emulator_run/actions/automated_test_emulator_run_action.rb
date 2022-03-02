@@ -477,6 +477,7 @@ module Fastlane
                                        env_name: "LANE_PLATFORM",
                                        description: "The platform of the lane you want to execute",
                                        conflicting_options: [:shell_command, :gradle_task],
+                                       default_value: 'android',
                                        is_string: true,
                                        optional: true),
           FastlaneCore::ConfigItem.new(key: :lane_options,

@@ -5,7 +5,7 @@ require 'fastlane/plugin/automated_test_emulator_run/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'fastlane-plugin-automated_test_emulator_run_next'
-  spec.version       = Fastlane::AutomatedTestEmulatorRun::VERSION
+  spec.version       = Fastlane::AutomatedTestEmulatorRunNext::VERSION
   spec.authors       = %q{Hiroto Nakamura}
   spec.email         = %q{hiroto.nakamura95@gmail.com}
 
