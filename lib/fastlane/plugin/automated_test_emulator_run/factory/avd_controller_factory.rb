@@ -5,7 +5,7 @@ module Fastlane
 
     class AVD_Controller
         attr_accessor :command_create_avd, :command_start_avd, :command_delete_avd, :command_apply_config_avd, :command_get_property, :command_kill_device,
-                      :output_file
+                      :command_install_image, :output_file
 
         def self.create_output_file(params)
           output_file = Tempfile.new('emulator_output', '#{params[:AVD_path]}')
@@ -121,6 +121,12 @@ module Fastlane
            sh_device_name_adb,
            sh_kill_device,
            "&>/dev/null"].join(" ")
+
+          avd_controller.command_install_image = [
+            'yes |', # accept any license prompts
+            sdk_helper.sdk_manager,
+            "'#{avd_scheme.create_avd_package}'"
+          ].join(" ")
 
           return avd_controller
         end 

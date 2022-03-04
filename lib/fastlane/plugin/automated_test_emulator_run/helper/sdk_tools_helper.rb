@@ -30,6 +30,10 @@ module Fastlane
       def avd_manager
         return "#{command_line_tools_dir}/avdmanager"
       end
+
+      def sdk_manager
+        return "#{command_line_tools_dir}/sdkmanager"
+      end
     end
   end
 end

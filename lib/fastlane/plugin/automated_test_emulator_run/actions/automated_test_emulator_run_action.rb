@@ -67,7 +67,16 @@ module Fastlane
               else 
                 # Create AVD
                 UI.message(["AVD with name '", avd_schemes[i].avd_name, "' does not exist. Creating new AVD."].join("").yellow)
-                Action.sh(avd_controllers[i].command_create_avd)
+                Action.sh(avd_controllers[i].command_create_avd, error_callback: lambda { |result| 
+                  if params[:install_missing_image] && result.include?("Error: Package path is not valid.")
+                    UI.message("System image not found: attempting to install #{avd_schemes[i].create_avd_package}".yellow)
+                    Action.sh(avd_controllers[i].command_install_image)
+                    UI.success("System image successfully installed! creating new AVD #{avd_schemes[i].avd_name}")
+                    Action.sh(avd_controllers[i].command_create_avd)
+                  else
+                    UI.user_error!(result)
+                  end
+                })
               end
             end
 
@@ -395,6 +404,12 @@ module Fastlane
                                        description: "The path to your android sdk directory (root). ANDROID_SDK_HOME by default",
                                        default_value: ENV['ANDROID_SDK_HOME'] || ENV['ANDROID_HOME'],
                                        is_string: true,
+                                       optional: true),
+          FastlaneCore::ConfigItem.new(key: :install_missing_image,
+                                       env_name: "AVD_INSTALL_MISSING_IMAGE",
+                                       description: "Enable to allow plugin to attempt to install any missing system images configured in the json setup",
+                                       default_value: false,
+                                       is_string: false,
                                        optional: true),
 
 
