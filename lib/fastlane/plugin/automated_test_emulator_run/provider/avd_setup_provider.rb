@@ -33,6 +33,7 @@ module Fastlane
             avd_scheme.create_avd_tag = avd_hash['create_avd_tag']
             avd_scheme.create_avd_abi = avd_hash['create_avd_abi']
             avd_scheme.create_avd_hardware_config_filepath = avd_hash['create_avd_hardware_config_filepath']
+            avd_scheme.create_avd_additional_options = avd_hash['create_avd_additional_options']
 
             avd_scheme.launch_avd_port = avd_hash['launch_avd_port']
             avd_scheme.launch_avd_launch_binary_name = avd_hash['launch_avd_launch_binary_name']
